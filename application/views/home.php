@@ -131,9 +131,14 @@
 
 				</div>
 				<div class="item"> <img src="assets/images/about-banner/about4.jpg" class="img-responsive" alt="">
-
 				</div>
+			</div>
+		</div>
+		<div class="col-12 col-md-12 neon-wrap">
+			<div class="form-group">
+				<a class="btn neon-btn" href="<?php echo base_url('about'); ?>">Know More</a>
 			</div>
 		</div>
 	</div>
 </div>
+

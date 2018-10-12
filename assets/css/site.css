@@ -255,7 +255,7 @@ a.book-appointment:hover {
 .main-nav ul li a {
   color: #fff;
   display: block;
-  padding: 17px 19px;
+  padding: 15px 19px;
   font-size: 1.4rem;
   text-align: center;
   text-transform: uppercase;
@@ -414,22 +414,13 @@ a.book-appointment:hover {
   clear: both;
 }
 h1 {
-  font-weight: 400;
+  font-weight: 600;
   margin: 0rem;
-  font-size: 30px;
-  margin-bottom: 30px;
-  position: relative;
-}
-h1:after {
-  width: 73px;
-  height: 3px;
-  display: block;
-  content: "";
-  background: #d32f2f;
-  position: absolute;
-  bottom: -16px;
-  left: 50%;
-  transform: translateX(-50%);
+  font-size: 35px;
+  margin: 30px 0;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
 }
 h2 {
   font-weight: 400;
@@ -855,6 +846,9 @@ ol {
 }
 .footer {
   font-size: 16px;
+  float: left;
+  width: 100%;
+  background: #41B3A3;
 }
 .footer .top {
   color: #fff;
@@ -866,10 +860,12 @@ ol {
   font-size: 16px;
 }
 .footer li {
-  padding: 0px 1px 10px;
+  padding: 5px;
   display: inline-block;
   vertical-align: top;
   font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 15px;
 }
 .footer li a {
   color: #fff;
@@ -1169,7 +1165,7 @@ table td:last-child {
 .pull-right {
   line-height: 5;
 }
-h3.appoint-head, h3.about-head {
+h3.appoint-head, h3.about-head, .word-main h3 {
   font-family: 'PT Sans', sans-serif;
   color: #000;
   text-align: center;
@@ -1237,6 +1233,7 @@ h3.appoint-head, h3.about-head {
 }
 .sticky-logo img {
   width: 50px;
+  height: auto;
 }
 .sticky-logo p {
   line-height: 3;
@@ -1272,6 +1269,20 @@ h3.appoint-head, h3.about-head {
 }
 .sticky-nav ul {
   line-height: 2;
+}
+.head-contact a{
+  margin: 0px 10px;
+}
+.main {
+  width: 100%;
+  float: left;
+  min-height: 468px;
+}
+.abt-sec {
+    margin: 20px 10px;
+}
+.chairperson-img img {
+  width: 350px;
 }
 @media screen and (max-width: 991px) {
   .sticky-nav .humburger {
@@ -1415,9 +1426,6 @@ h3.appoint-head, h3.about-head {
   h1 {
     font-size: 22px;
   }
-}
-.head-contact a{
-  margin: 0px 10px;
 }
 @media screen and (max-width: 767px) {
   .banner-carousal .owl-nav .owl-prev {
