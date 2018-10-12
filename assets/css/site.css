@@ -1277,12 +1277,53 @@ h3.appoint-head, h3.about-head, .word-main h3 {
   width: 100%;
   float: left;
   min-height: 468px;
+  margin-bottom: 30px;
 }
 .abt-sec {
-    margin: 20px 10px;
+  margin: 20px 10px;
 }
 .chairperson-img img {
   width: 350px;
+}
+.dpt-sidebar {
+  width: 20%;
+  float: left;
+}
+.dpt-content {
+  width: 80%;
+  float: left;
+}
+li.dpt-side {
+  padding: 10px 15px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+li.dpt-side:hover {
+  background: #f1f2f6;
+  cursor: pointer;
+}
+.dpt-cnt-main {
+  width: 100%;
+  float: left;
+  padding: 40px 30px;
+  background: #f1f2f6;
+}
+.dpt-head img {
+  width: 220px;
+}
+.dpt-cnt h3 {
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.dpt-cnt-main {
+  display: none;
+}
+.dpt-cnt-main:first-child {
+  display: block;
+}
+.side-active {
+  background: #f1f2f6;
 }
 @media screen and (max-width: 991px) {
   .sticky-nav .humburger {

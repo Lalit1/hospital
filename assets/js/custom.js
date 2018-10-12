@@ -42,3 +42,15 @@ $(window).scroll(function(){
 		$('.sticky-head').hide();
 	}
 });
+
+
+$(document).on('click',".dpt-side", function(e){
+
+	var id = $(this).data('id');
+	console.log(id);
+	$(this).addClass('side-active').siblings().removeClass('side-active');
+	$('.dpt-cnt-main').hide();
+	$('.dpt-cnt-'+id).show();
+
+
+});

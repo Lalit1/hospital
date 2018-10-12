@@ -82,8 +82,8 @@
   				 </ul>
   				</li>-->
 
-  				<li> <a href="#about-us">About Us</a> </li>
-  				<li> <a href="#">Departments	</a></li>
+  				<li> <a href="<?php echo base_url('about'); ?>">About Us</a> </li>
+  				<li> <a href="<?php echo base_url('department'); ?>">Departments	</a></li>
   				<li> <a href="#">Allied Services</a></li>
   				<!--<li> <a href="#">patient Services</a></li>-->
   				<li> <a href="#">Know your Doctors</a></li>            
