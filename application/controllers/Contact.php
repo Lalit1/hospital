@@ -12,5 +12,11 @@ class Contact extends CI_Controller
     {
     	$this->load->template('query');
     }
+    public function feedback() {
+    	$this->load->template('feedback');
+    }
+    public function career() {
+    	$this->load->template('career');
+    }
 
 }

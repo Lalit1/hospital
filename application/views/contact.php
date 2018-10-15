@@ -19,7 +19,7 @@
 					<p>
 						We'd love to hear from you on how we can improve ourselves to serve you better. Write to us via this form here.
 					</p>
-					<a class="btn neon-btn">Feedback</a>
+					<a href="<?php echo base_url('contact/feedback'); ?>" class="btn neon-btn">Feedback</a>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -29,7 +29,7 @@
 					<p>
 						For information on jobs and openings, please visit our Careers section and write to us from here.
 					</p>
-					<a class="btn neon-btn">Careers</a>
+					<a href="<?php echo base_url('contact/career'); ?>" class="btn neon-btn">Careers</a>
 				</div>
 			</div>
 		</div>

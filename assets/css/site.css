@@ -1399,6 +1399,10 @@ li.dpt-side:hover {
   height: 50px;
   margin-bottom: 31px;
 }
+.feedback-main {
+  margin: 2% 0;
+  padding: 2% 16%;
+}
 @media screen and (max-width: 991px) {
   .sticky-nav .humburger {
     color: #fff;
