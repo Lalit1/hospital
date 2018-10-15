@@ -20,11 +20,6 @@ $(function(){
 		items: 4,
 		autoplay:true,
 		margin: 20
-/*		responsive: {
-			0: {
-				items: 1
-			}
-		}*/
 	})
 });
 
@@ -49,8 +44,7 @@ $(document).on('click',".dpt-side", function(e){
 	var id = $(this).data('id');
 	console.log(id);
 	$(this).addClass('side-active').siblings().removeClass('side-active');
-	$('.dpt-cnt-main').hide();
-	$('.dpt-cnt-'+id).show();
-
+	$('.dpt-cnt-main').hide('slow');
+	$('.dpt-cnt-'+id).show('slow');
 
 });

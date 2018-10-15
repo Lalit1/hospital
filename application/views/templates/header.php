@@ -18,12 +18,12 @@
 
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/site.css">
 
-	<!--<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/blue.css">-->
-	
- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <!--<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/blue.css">-->
 
- <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
     <div class="mid-header">
     	<div class="container">
     		<a href="<?php echo base_url() ?>" class="pull-left logo">
-    			<img src="assets/images/logo.png" class="img-responsive site-logo" alt="Neon Hospital">  
+    			<img src="<?php echo base_url(); ?>assets/images/logo.png" class="img-responsive site-logo" alt="Neon Hospital">  
     			<span class="site-name">HOSPITAL</span>
     		</a>
     		<div class="pull-right head-contact">
@@ -84,12 +84,12 @@
 
   				<li> <a href="<?php echo base_url('about'); ?>">About Us</a> </li>
   				<li> <a href="<?php echo base_url('department'); ?>">Departments	</a></li>
-  				<li> <a href="#">Allied Services</a></li>
-  				<!--<li> <a href="#">patient Services</a></li>-->
-  				<li> <a href="#">Know your Doctors</a></li>            
-  				<li> <a href="#">Contact Us</a> </li>
+          <li> <a href="<?php echo base_url('alliedServices'); ?>">Allied Services</a></li>
+          <!--<li> <a href="#">patient Services</a></li>-->
+          <li> <a href="<?php echo base_url('doctors') ?>">Know your Doctors</a></li>          
+          <li> <a href="<?php echo base_url('contact'); ?>">Contact Us</a> </li>
 
-  				<!--<li role="separator" class="divider"></li>-->
+          <!--<li role="separator" class="divider"></li>-->
           <!--<li class="dropdown d-hide"> <a href="about_us.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AWARD <span class="caret"></span></a>
 
             	<ul class="dropdown-menu" >
@@ -121,20 +121,20 @@
 	<div class="sticky-head-wrap">
 
 		<div class="sticky-logo">
-			<img src="assets/images/logo.png" class="img-responsive site-logo" alt="Neon Hospital"> 
+			<img src="<?php echo base_url(); ?>assets/images/logo.png" class="img-responsive site-logo" alt="Neon Hospital"> 
 			<p>Hospital</p>
 		</div>
 		<div class="sticky-navigation">
 			<ul>
 				<li> <a href="<?php echo base_url(); ?>">Home</a></li>
-				<li> <a href="#about-us">About Us</a> </li>
-				<li> <a href="#">Departments  </a></li>
-				<li> <a href="#">Allied Services</a></li>
-				<!--<li> <a href="#">patient Services</a></li>-->
-				<li> <a href="#">Know your Doctors</a></li>            
-				<li> <a href="#">Contact Us</a> </li>
-			</ul>
-		</div>
-	</div>
+        <li> <a href="<?php echo base_url('about'); ?>">About Us</a> </li>
+        <li> <a href="<?php echo base_url('department'); ?>">Departments  </a></li>
+        <li> <a href="<?php echo base_url('alliedServices'); ?>">Allied Services</a></li>
+        <!--<li> <a href="#">patient Services</a></li>-->
+        <li> <a href="<?php echo base_url('doctors'); ?>">Know your Doctors</a></li>            
+        <li> <a href="<?php echo base_url('contact'); ?>">Contact Us</a> </li>
+      </ul>
+    </div>
+  </div>
 </div>
 <!--close header-->
