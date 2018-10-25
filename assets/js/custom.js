@@ -48,3 +48,7 @@ $(document).on('click',".dpt-side", function(e){
 	$('.dpt-cnt-'+id).show('slow');
 
 });
+
+$(document).on('click',"#user-toggle", function(){
+	$('.user-box').toggle('slow');
+});

@@ -91,21 +91,23 @@
 </div>
 <div class="opening-main">
 	<div class="opening wrap">
-		<div class="neon-contact-info">
+		<div class="neon-contact-info text-center">
 			<!-- Single Contact Info -->
-			<div class="single-contact-info col-md-4">
-				<i class="far fa-clock" ></i>
-				<p>Mon - Sat 08:00 - 21:00 <br>Sunday CLOSED</p>
-			</div>
-			<!-- Single Contact Info -->
-			<div class="single-contact-info col-md-4">
-				<i class="far fa-envelope" ></i>
-				<p>0080 673 729 766 <br>admin@neonhospital.com</p>
-			</div>
-			<!-- Single Contact Info -->
-			<div class="single-contact-info col-md-4">
-				<i class="fas fa-map-marker-alt"> </i>
-				<p>Thane, Mumbai <br>India</p>
+			<div class="row">
+				<div class="single-contact-info col-md-4">
+					<i class="far fa-clock" ></i>
+					<p>Mon - Sat 08:00 - 21:00 <br>Sunday CLOSED</p>
+				</div>
+				<!-- Single Contact Info -->
+				<div class="single-contact-info col-md-4">
+					<i class="far fa-envelope" ></i>
+					<p>0080 673 729 766 <br>admin@neonhospital.com</p>
+				</div>
+				<!-- Single Contact Info -->
+				<div class="single-contact-info col-md-4">
+					<i class="fas fa-map-marker-alt"> </i>
+					<p>Thane, Mumbai <br>India</p>
+				</div>
 			</div>
 		</div>
 	</div>

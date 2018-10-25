@@ -13,17 +13,17 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/scrollbar.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/lightbox.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-datetimepicker.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
 
 
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/site.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/site.css">
 
-  <!--<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/blue.css">-->
+	<!--<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/blue.css">-->
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 </head>
 
 <body>
@@ -84,12 +84,26 @@
 
   				<li> <a href="<?php echo base_url('about'); ?>">About Us</a> </li>
   				<li> <a href="<?php echo base_url('department'); ?>">Departments	</a></li>
-          <li> <a href="<?php echo base_url('alliedServices'); ?>">Allied Services</a></li>
-          <!--<li> <a href="#">patient Services</a></li>-->
-          <li> <a href="<?php echo base_url('doctors') ?>">Know your Doctors</a></li>          
-          <li> <a href="<?php echo base_url('contact'); ?>">Contact Us</a> </li>
+  				<li> <a href="<?php echo base_url('alliedServices'); ?>">Allied Services</a></li>
+  				<!--<li> <a href="#">patient Services</a></li>-->
+  				<li> <a href="<?php echo base_url('doctors') ?>">Know your Doctors</a></li>          
+  				<li> <a href="<?php echo base_url('contact'); ?>">Contact Us</a> </li>
 
-          <!--<li role="separator" class="divider"></li>-->
+  				<?php if ($this->session->userdata('userId')) { ?>
+  					<li style="position: relative;" id="user-toggle">
+  						<i class="far fa-user-circle user-icon"></i>
+  						<div class="user-box" style="display: none;">
+  							<ul>
+  								<li><a href="<?php echo base_url('user/dashboard'); ?>">Dashboard</a></li>
+  								<li><a href="<?php echo base_url('user/logout'); ?>">Log Out</a></li>
+  							</ul>
+  						</div>
+  						<!-- <a href="<?php //echo base_url('user/logout'); ?>">Sign Out</a> -->
+  					</li>
+
+  				<?php } ?>
+
+  				<!--<li role="separator" class="divider"></li>-->
           <!--<li class="dropdown d-hide"> <a href="about_us.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AWARD <span class="caret"></span></a>
 
             	<ul class="dropdown-menu" >
@@ -127,14 +141,14 @@
 		<div class="sticky-navigation">
 			<ul>
 				<li> <a href="<?php echo base_url(); ?>">Home</a></li>
-        <li> <a href="<?php echo base_url('about'); ?>">About Us</a> </li>
-        <li> <a href="<?php echo base_url('department'); ?>">Departments  </a></li>
-        <li> <a href="<?php echo base_url('alliedServices'); ?>">Allied Services</a></li>
-        <!--<li> <a href="#">patient Services</a></li>-->
-        <li> <a href="<?php echo base_url('doctors'); ?>">Know your Doctors</a></li>            
-        <li> <a href="<?php echo base_url('contact'); ?>">Contact Us</a> </li>
-      </ul>
-    </div>
-  </div>
+				<li> <a href="<?php echo base_url('about'); ?>">About Us</a> </li>
+				<li> <a href="<?php echo base_url('department'); ?>">Departments  </a></li>
+				<li> <a href="<?php echo base_url('alliedServices'); ?>">Allied Services</a></li>
+				<!--<li> <a href="#">patient Services</a></li>-->
+				<li> <a href="<?php echo base_url('doctors'); ?>">Know your Doctors</a></li>            
+				<li> <a href="<?php echo base_url('contact'); ?>">Contact Us</a> </li>
+			</ul>
+		</div>
+	</div>
 </div>
 <!--close header-->
