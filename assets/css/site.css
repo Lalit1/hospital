@@ -1428,6 +1428,7 @@ li.dpt-side:hover {
   background: #000;
   top: 55px;
   right: 0;
+  z-index: 9;
 }
 .user-box li:first-child {
   border-bottom: 2px solid;
@@ -1456,9 +1457,12 @@ li.dpt-side:hover {
 .side-wrap ul li {
   padding: 15px 20px;
 }
-.side-wrap ul li a{
+.side-wrap ul li a {
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 .side-wrap ul li:hover {
   background: #000;
@@ -1466,8 +1470,63 @@ li.dpt-side:hover {
 }
 .admin-icon {
   color: #fff;
-  font-size: 35px;
+  font-size: 30px;
   width: 100%;
+}
+.accord-icon {
+  font-size: 20px;
+  vertical-align: middle;
+  padding-right: 15px;
+}
+.admin-info-form input, .admin-cred-form input {
+  width: 100%;
+  padding: 10px;
+  height: 50px;
+}
+.panel-title .collapsed i:before {
+  content: "\f055";
+}
+.admin-main h2 {
+  font-weight: 600;
+  margin: 0rem;
+  font-size: 22px;
+  margin: 30px 0;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  text-align: left;
+  padding-left: 20px;
+}
+.admin-main h1 {
+  font-size: 25px;
+  background: #c1c1c1;
+  margin: 0px;
+  padding: 15px 20px;
+  text-align: left;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  top: 0;
+}
+.admin-main .container-fluid {
+  padding-top: 55px;
+}
+.admin-main .panel-body {
+  padding: 20px 50px;
+  border: 0px!important;
+}
+.admin-main .panel-default {
+  border: 0px!important;
+}
+.admin-main .panel-heading {
+  border: 0px;
+}
+.admin-note {
+  margin: 20px 0px;
+}
+.banner-gallery img {
+  width: 220px;
+  height: 150px;
+  margin: 0px 20px 20px 0px;
 }
 @media screen and (max-width: 991px) {
   .sticky-nav .humburger {
