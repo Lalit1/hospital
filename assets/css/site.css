@@ -1276,7 +1276,7 @@ h3.appoint-head, h3.about-head, .word-main h3 {
 .main {
   width: 100%;
   float: left;
-  min-height: 468px;
+  min-height: 500px;
   margin-bottom: 30px;
 }
 .abt-sec {
