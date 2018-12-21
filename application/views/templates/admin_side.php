@@ -40,7 +40,7 @@
 			<ul>
 				<li><a href="<?php echo base_url('user/dashboard'); ?>"><i class="far fa-user-circle admin-icon"></i><p>Admin</a></p></li>
 				<li><a href="<?php echo base_url('user/edit_home'); ?>"><i class="fas fa-home admin-icon"></i><p>Home</a></p></li>
-				<li><a href="#"><i class="fas fa-user admin-icon"></i><p>About Us</a></p></li>
+				<li><a href="<?php echo base_url('user/edit_about_us'); ?>"><i class="fas fa-user admin-icon"></i><p>About Us</a></p></li>
 				<li><a href="#"><i class="fas fa-stethoscope admin-icon"></i><p>Departments</a></p></li>
 				<li><a href="#"><i class="fas fa-medkit admin-icon"></i><p>Allied Services</a></p></li>
 				<li><a href="#"><i class="fas fa-user-md admin-icon"></i><p>Doctors</a></p></li>

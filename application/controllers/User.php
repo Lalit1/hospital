@@ -4,6 +4,14 @@
 class User extends CI_Controller
 {
 
+	function  __construct() {
+		parent::__construct();
+        // Load session library
+		$this->load->library('session');
+		$this->load->model('Home_model');
+	}
+
+
 	public function login() {
 
 		// check if credential is right
@@ -28,7 +36,7 @@ class User extends CI_Controller
 		$this->load->template('login');
 	}
 
-
+	/*user dashboard redirect controller*/
 	public function dashboard() {
 		if(empty($this->session->userdata('userId')))
 			redirect('/user/login');
@@ -43,7 +51,7 @@ class User extends CI_Controller
 		
 	}
 
-
+	/*function to update user info*/
 	public function info_update() {
 		$form_data = $this->input->post();
 		if ($form_data) {
@@ -63,6 +71,7 @@ class User extends CI_Controller
 		redirect('user/dashboard');
 	}
 
+	/*function to update user credentials*/
 	public function update_credentials() {
 		$form_data = $this->input->post();
 		if ($form_data) {
@@ -82,40 +91,128 @@ class User extends CI_Controller
 		}
 	}
 
-	public function edit_home() {
-		$this->load->admin_temp('admin/home');
+	/*edit home redirect controller*/
+	public function edit_home($data = NULL) {
+		$this->load->admin_temp('admin/home', $data);
 	}
 
+	/*function to upload home banner*/
 	public function upload_banner() {
-		$this->load->library('upload');
-		$dataInfo = array();
-		$files = $_FILES;
-		$cpt = count($_FILES['banner']['name']);
-echo "<pre>";
-print_r($_FILES);
-die();
-		for($i=0; $i<$cpt; $i++)
-		{           
-			$_FILES['banner']['name']= $files['banner']['name'][$i];
-			$_FILES['banner']['type']= $files['banner']['type'][$i];
-			$_FILES['banner']['tmp_name']= $files['banner']['tmp_name'][$i];
-			$_FILES['banner']['error']= $files['banner']['error'][$i];
-			$_FILES['banner']['size']= $files['banner']['size'][$i];    
+		if (!empty($_FILES['files']['name'][0])) {
 
-			$this->upload->initialize($this->set_upload_options());
-			$this->upload->do_upload();
-			$dataInfo[] = $this->upload->data();
+			$path = 'uploads/images/home_banner';
+			$data = $this->upload_files($path, $_FILES);
+			// echo "<pre>";
+			// print_r($_FILES);
+			// die();
+			if (!$data)
+				$this->session->set_flashdata('error','Something went wrong please try again later.');
+			else
+				$this->session->set_flashdata('success', 'Home page bannens has been updated successfully.');			
+		}
+		$this->edit_home($data);
+	}
+
+	/*generic function for image upload*/
+	public function upload_files($path, $files) {
+		$_FILES = $files;
+		$path = base_url().$path;
+		$data = array();
+        // If file upload form submitted
+		$filesCount = count($_FILES['files']['name']);
+		for($i = 0; $i < $filesCount; $i++){
+			$_FILES['file']['name']     = $_FILES['files']['name'][$i];
+			$_FILES['file']['type']     = $_FILES['files']['type'][$i];
+			$_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+			$_FILES['file']['error']     = $_FILES['files']['error'][$i];
+			$_FILES['file']['size']     = $_FILES['files']['size'][$i];
+
+                // File upload configuration
+			$config['upload_path'] = $path;
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+
+                // Load and initialize upload library
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+                // Upload file to server
+			if($this->upload->do_upload('file')){
+                    // Uploaded file data
+				$fileData = $this->upload->data();
+				echo "<pre>"; print_r($fileData); die();
+				$uploadData[$i]['file_name'] = $fileData['file_name'];
+				$uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s");
+			}
 		}
 
-		$data = array(
-			'name' => $this->input->post('pd_name'),
-			'prod_image' => $dataInfo[0]['file_name'],
-			'prod_image1' => $dataInfo[1]['file_name'],
-			'prod_image2' => $dataInfo[2]['file_name'],
-			'created_time' => date('Y-m-d H:i:s')
-		);
-		$result_set = $this->tbl_products_model->insertUser($data);
+		if(!empty($uploadData)){
+                // Insert files data into the database
+			$insert = $this->Home_model->insert($uploadData);
+
+                // Upload status message
+			$statusMsg = $insert?'Files uploaded successfully.':'Some problem occurred, please try again.';
+			$this->session->set_flashdata('statusMsg',$statusMsg);
+		}
+
+        // Get files data from the database
+		$data['files'] = $this->Home_model->getRows();
+
+		return $data;
+        // Pass the files data to view
+		$this->load->view('upload_files/index', $data);
 	}
+
+
+	public function do_upload($path, $inputName) {
+		
+		/*preparing upload config*/
+		$path = FCPATH.$path;
+		$config['upload_path'] = $path;
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size'] = 100;
+
+		/*load file upload library*/
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload($inputName)) return TRUE;
+		return FALSE;
+	}
+
+	/*function to load admin about us page*/
+	public function edit_about_us() {
+		if (!empty($this->input->post())) {
+			switch ($this->input->post('key')) {
+				/*content add/edit*/
+				case 1:
+				$content = $this->input->post('about_content');
+				$result = $this->Home_model->add_about_content($content, 1);
+				break;
+
+				/*upload ft_img*/
+				case 2:
+				$path = 'uploads/images/about-ft-img';
+				$inputName = 'ft_img';
+				$result = $this->do_upload($path, $inputName);
+				if(!$result) $this->session->set_flashdata('error', 'Something went wrong! Please try again later.');
+				else {
+					$this->Home_model->add_about_content($_FILES['ft_img']['name'], 2);
+					$this->session->set_flashdata('succes', 'Featured image has been uploaded successfully.');
+				}
+				break;
+			}
+			
+		}
+		$data = $this->Home_model->get_about_content();
+		$aboutData = array(
+			'content' => $data['content'],
+			'ft_img' => $data['ft_img'],
+			'updated_at' => $data['updated_at'],
+		);
+		$this->load->admin_temp('admin/about_us', $aboutData);
+	}
+
+
+	/*function to logout user*/
 	public function logout() {
 		session_destroy();
 

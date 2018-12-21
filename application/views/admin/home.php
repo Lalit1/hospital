@@ -6,17 +6,17 @@ if (!$this->session->userdata('userId')) {
 <div class="admin-main">
 	<div class="admin-wrap">
 		<h1>Edit Home</h1>
-		<?php if ($this->session->flashdata('success')) { ?>
-			<div class="alert alert-success">
-				<strong>Success!</strong> <?php echo $this->session->flashdata('success'); ?>
-			</div>
-		<?php } elseif($this->session->flashdata('error')) { ?>
-			<div class="alert alert-danger">
-				<strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
-			</div>
-		<?php } ?>
 		<div class="container-fluid">
 			<div class="row">
+				<?php if ($this->session->flashdata('success')) { ?>
+					<div class="alert alert-success admin-note">
+						<strong>Success!</strong> <?php echo $this->session->flashdata('success'); ?>
+					</div>
+				<?php } elseif($this->session->flashdata('error')) { ?>
+					<div class="alert alert-danger admin-note">
+						<strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
+					</div>
+				<?php } ?>
 				<div class="alert alert-info alert-dismissible fade in admin-note">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 					<strong>Note:</strong> Here you can change content of home page.
@@ -31,9 +31,9 @@ if (!$this->session->userdata('userId')) {
 						<div id="collapse1" class="panel-collapse collapse in">
 							<div class="panel-body">
 								<div class="banner-gallery"></div>
-								<form action="<?php echo base_url('user/upload_banner'); ?>" method="post" class="banner-upload">
+								<form enctype="multipart/form-data" action="<?php echo base_url('user/upload_banner'); ?>" method="post" class="banner-upload">
 									<div class="col-md-8">
-										<input type="file" name="banner[]" class="form-group" id="banner-img" multiple>
+										<input type="file" name="files[]" class="form-group" id="banner-img" multiple>
 									</div>
 									<div class="col-md-8">
 										<button type="submit" class="neon-btn">Save</button>
