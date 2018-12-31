@@ -169,7 +169,7 @@ class User extends CI_Controller
 		$path = FCPATH.$path;
 		$config['upload_path'] = $path;
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-		$config['max_size'] = 100;
+		$config['max_size'] = 1024;
 
 		/*load file upload library*/
 		$this->load->library('upload', $config);
@@ -211,6 +211,83 @@ class User extends CI_Controller
 		$this->load->admin_temp('admin/about_us', $aboutData);
 	}
 
+	/*function to load admin department page*/
+	public function edit_departments() {
+
+		/*if form data not empty*/
+		if (!empty($this->input->post())) {
+			$form_data = $this->input->post();
+			$path = 'uploads/images/dept-img';
+			$inputName = 'hod_img';
+
+			/*call file upload function*/
+			$uploadResult = $this->do_upload($path, $inputName);
+			if(!$uploadResult) $this->session->set_flashdata('error', 'Something went wrong! Please try again later.');
+			else {
+				$result = $this->Home_model->add_department($form_data, $_FILES['hod_img']['name']);
+				if (!$result) $this->session->set_flashdata('error', "Something went wrong! Please try again later.");
+				else {
+					$this->session->set_flashdata('success', "Department has been added/updated successfully.");
+					redirect('/user/edit_departments');
+				}
+			}
+		}
+		/*delete department*/
+		elseif (!empty($this->input->get())) {
+			$isDelete = $this->Home_model->delete_dept($this->input->get('id'));
+			if (!$isDelete) $this->session->set_flashdata('error', "Something went wrong! Please try again later.");
+			else {
+				$this->session->set_flashdata('success', "Department has been successfully deleted.");
+				redirect('/user/edit_departments');
+			}
+		}
+
+		/*if form data empty*/
+		$data = $this->Home_model->get_department();
+		$deptData = array(
+			'deptData' => $data
+		);
+		$this->load->admin_temp('admin/departments', $deptData);
+	}
+
+	/*function to load and edit aliied services */
+	public function edit_allied_services() {
+		if (!empty($this->input->post())) {
+		// echo "<pre>";
+		// print_r($this->input->post());
+		// die();
+			$form_data = $this->input->post();
+			$path = 'uploads/images/allied-banner-img';
+			$inputName = 'al_banner';
+
+			/*call file upload function*/
+			$uploadResult = $this->do_upload($path, $inputName);
+			if(!$uploadResult) $this->session->set_flashdata('error', 'Something went wrong! Please try again later.');
+			else {
+				$result = $this->Home_model->add_allied_services($form_data, $_FILES['al_banner']['name']);
+				if (!$result) $this->session->set_flashdata('error', "Something went wrong! Please try again later.");
+				else {
+					$this->session->set_flashdata('success', "Allied Service has been added/updated successfully.");
+					redirect('/user/edit_allied_services');
+				}
+			}
+		}
+		/*delete allied services*/
+		elseif (!empty($this->input->get())) {
+			$isDelete = $this->Home_model->delete_allied_services($this->input->get('id'));
+			if (!$isDelete) $this->session->set_flashdata('error', "Something went wrong! Please try again later.");
+			else {
+				$this->session->set_flashdata('success', "Allied service has been successfully deleted.");
+				redirect('/user/edit_allied_services');
+			}
+		}
+
+		$data = $this->Home_model->get_allied_services();
+		$alliedData = array(
+			'alliedData' => $data
+		);
+		$this->load->admin_temp('admin/allied_services', $alliedData);
+	}
 
 	/*function to logout user*/
 	public function logout() {

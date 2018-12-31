@@ -47,17 +47,15 @@ if (!$this->session->userdata('userId')) {
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- about page main image -->
-				<div class="panel-group">
+					<!-- about page main image -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="panel-title">
-								<a data-toggle="collapse" href="#collapse1"><i class="fas fa-minus-circle accord-icon"></i>Feature image</a>
+								<a data-toggle="collapse" href="#collapse2"><i class="fas fa-minus-circle accord-icon"></i>Feature image</a>
 							</h4>
 						</div>
-						<div id="collapse1" class="panel-collapse collapse in">
+						<div id="collapse2" class="panel-collapse collapse in">
 							<div class="panel-body">
 								<?php if(!empty($ft_img)){ ?>
 									<img src="<?php echo base_url().'uploads/images/about-ft-img/'.$ft_img ?>" style="width: 300px; margin-bottom: 20px;" >
@@ -72,17 +70,15 @@ if (!$this->session->userdata('userId')) {
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- Carousel images -->
-				<div class="panel-group">
+					<!-- Carousel images -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="panel-title">
-								<a data-toggle="collapse" href="#collapse1"><i class="fas fa-minus-circle accord-icon"></i>Carousel Images</a>
+								<a data-toggle="collapse" href="#collapse3"><i class="fas fa-minus-circle accord-icon"></i>Carousel Images</a>
 							</h4>
 						</div>
-						<div id="collapse1" class="panel-collapse collapse in">
+						<div id="collapse3" class="panel-collapse collapse in">
 							<div class="panel-body">
 								<p>Carousel Images</p>
 							</div>

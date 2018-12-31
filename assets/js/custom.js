@@ -78,3 +78,17 @@ $(function() {
     	imagesPreview(this, 'div.banner-gallery');
     });
 });
+
+
+/*edit functionality on admin edit-department*/
+$(document).on('click', '#dept_edit', function(){
+	var title = $(this).closest('tr.dept-tr').find('p#dept_title').html();
+	var content = $(this).closest('tr.dept-tr').find('p#dept_content').html();
+	var id = $(this).closest('tr.dept-tr').find('p#dept_id').html();
+
+	$('.title-input').val(title);
+	$('.content-input').val(content);
+	$('.id-input').val(id);
+
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+});

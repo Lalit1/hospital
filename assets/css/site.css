@@ -7,6 +7,21 @@
   width: 85px;
   float: left;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 .site-name {
   float: left;
   line-height: 75px;
@@ -893,24 +908,31 @@ table {
   font-size: 16px;
   border: solid 1px #b7b7b7;
   margin: 0 0 0px;
+  margin-bottom: 30px;
 }
 table th {
-  color: #fff;
-  background: #2995e2;
-  padding: 12px 15px;
+  padding: 12px;
   font-weight: normal;
-  border: solid 1px #138455;
+  border: solid 1px #333;
   border-collapse: collapse;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  border-right: 1px solid #fff;
+}
+table th:last-child {
+  border-right: 1px solid #333;
 }
 table td {
-  padding: 8px 15px;
+  padding: 8px;
   font-size: 14px;
-  color: #626262;
   border: solid 1px #b7b7b7;
   border-collapse: collapse;
+  vertical-align: top;
 }
 table td:last-child {
   text-align: center;
+  vertical-align: middle;
 }
 .view-all-home {
   background: #558000;
@@ -1527,6 +1549,19 @@ li.dpt-side:hover {
   width: 220px;
   height: 150px;
   margin: 0px 20px 20px 0px;
+}
+.hod-img {
+  width: 220px;
+}
+.no-data {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
 }
 @media screen and (max-width: 991px) {
   .sticky-nav .humburger {
