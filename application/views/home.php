@@ -1,3 +1,4 @@
+<div class="main">
 <div class="banner">
 	<div class="owl-carousel owl-theme banner-carousal">
 		<div class="item"> <img src="assets/images/banners/b.jpg" class="img-responsive" alt="">
@@ -142,5 +143,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
